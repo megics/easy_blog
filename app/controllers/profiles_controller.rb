@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :find_profile, only: [:show, :edit, :update, :destroy]
+  #before_action :find_profile, only: [:show, :edit, :update, :destroy]
   def new
     @profile = Profile.new
   end
@@ -14,9 +14,12 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @profile = Profile.find params[:id]
+  end
 
   def update
+    @profile = Profile.find params[:id]
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
     else
@@ -29,15 +32,18 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
+    @profile = Profile.find params[:id]
     @profile.destroy
     ##redirect_to @profiles_path
   end
 
   private
 
+=begin
   def find_profile
     @profile = Profile.find params[:id]
   end
+=end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :phone, :university, :address)

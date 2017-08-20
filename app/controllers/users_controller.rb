@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before action :authenticate_user!
 
+=begin
   def index
     @users = User.all
   end
@@ -19,5 +20,6 @@ class UsersController < ApplicationController
       redirect_to :back, :alert => "Erişilemez!"
     end
   end
+=end
 
 end
