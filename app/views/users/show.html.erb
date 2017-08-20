@@ -1,0 +1,9 @@
+<h2>User Profile</h2>
+
+<%= @user.profile.first_name %> <%= @user.profile.last_name %><br>
+<%= @user.profile.phone %><br>
+<%= @user.profile.university %><br>
+<%= @user.profile.address %>
+<br><br>
+<%= link_to 'Edit Profile', 'profile' %><br>
+<%= link_to 'Back', edit_user_registration_path %>

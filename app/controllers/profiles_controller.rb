@@ -1,5 +1,10 @@
 class ProfilesController < ApplicationController
-  #before_action :find_profile, only: [:show, :edit, :update, :destroy]
+  ##before_action :find_profile, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @profiles = Profile.all
+  end
+
   def new
     @profile = Profile.new
   end
@@ -15,11 +20,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find params[:id]
+    @profile = Profile.find( params[:id])
   end
 
   def update
-    @profile = Profile.find params[:id]
+    @profile = Profile.find( params[:id])
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
     else
@@ -28,11 +33,11 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.where params[:id]
+    @profile = Profile.find(params[:id])
   end
 
   def destroy
-    @profile = Profile.find params[:id]
+    @profile = Profile.find(params[:id])
     @profile.destroy
     ##redirect_to @profiles_path
   end

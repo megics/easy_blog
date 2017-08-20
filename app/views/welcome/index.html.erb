@@ -1,21 +1,20 @@
-<ul>
+<ul class="nav pull-right">
+  <i>You are homepage now.</i><br><br>
+  <li><%= link_to 'Articles', 'articles' %></li>
+
   <% if user_signed_in? %>
-    <li>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
+      <!--<li id="fat-menu" class="dropdown">-->
+        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
+          <!--Settings <b class="caret"></b>-->
+        <!--</a>-->
+        <!--<ul class="dropdown-menu">-->
+          <li><%= link_to "User Settings", edit_user_registration_path %></li>
+          <li><%= link_to "Help", '#' %></li>
+        <!--</ul>-->
+      <!--</li>-->
+      <li><b> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></b></li>
   <% else %>
-    <li>
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
+      <li><b><%= link_to "Sign in", new_user_session_path %></b></li>
   <% end %>
 </ul>
-
-<%= link_to 'My Blog', controller: 'articles' %> <br>
-
-<%= link_to 'My Profile', controller: users_path %> <br>
-
-<%= link_to 'New article', new_article_path %>
 
