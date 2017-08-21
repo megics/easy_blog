@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
   end
+
+  resources :articles do
+    resources :comments
+  end
+
 end
