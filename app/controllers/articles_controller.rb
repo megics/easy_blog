@@ -6,10 +6,12 @@ class ArticlesController < ApplicationController
   end
 
   def new
+    #@articles_category = Category.new
     @article = Article.new
   end
 
   def create
+    #@articles_category = Category.new(category_params)
     @article = Article.new(article_params)
 
     if @article.save
@@ -48,6 +50,11 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :text)
   end
+
+  # def category_params
+  #   params.require(:category).permit(:name)
+  # end
+  #
 
 =begin
   def get_article
