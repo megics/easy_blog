@@ -1,13 +1,22 @@
-<h2>User Profile</h2>
+<h1>User Profile</h1>
 
-<p><b>FIRST NAME:</b> <%= @user.profile.first_name %> </p>
-<p><b>LAST NAME: </b><%= @user.profile.last_name %> </p>
-<p><b>PHONE NUMBER: </b><%= @user.profile.phone %> </p>
-<p><b>UNIVERSITY: </b><%= @user.profile.university %> </p>
-<p><b>ADDRESS: </b><%= @user.profile.address %> </p>
+<div class="body">
+  <%= image_tag(current_user.avatar.url(:thumb)) %>
+</div>
+<div class="container">
+  <p><b>FIRST NAME: </b> <%= @user.first_name %> </p>
+  <p><b>LAST NAME: </b><%= @user.last_name %> </p>
+  <p><b>GENDER: </b><%= @user.is_female %> </p>
+  <p><b>BIRTHDAY: </b><%= @user.birth_date %> </p>
+  <p><b>PHONE NUMBER: </b><%= @user.phone %> </p>
+  <p><b>UNIVERSITY: </b><%= @user.university %> </p>
+  <p><b>ADDRESS: </b><%= @user.address %> </p>
+  <p><b>EMAIL: </b><%= @user.email %> </p>
+</div>
 
 
-<%= link_to 'Edit Profile', 'current_user/edit' %><br>
+
+<%= link_to 'Edit Profile', 'edit' %><br>
 
 <br><br>
 

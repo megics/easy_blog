@@ -1,0 +1,9 @@
+<h1>CATEGORIES</h1>
+
+<% @categories.each do |category| %>
+    <%= category.name %><br>
+<% end %>
+
+<h4>Do you want create category?<p><%=link_to "Click Here!", 'new' %></p></h4>
+<br><br>
+<%= link_to 'Back', root_path %>
