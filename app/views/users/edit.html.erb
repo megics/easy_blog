@@ -2,7 +2,7 @@ profil düzenleme sayfası
 profil düzenleme sayfası
 
 <h2>Edit Profile</h2>
-<%=form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
     <p>
       <%=f.label :first_name %><br>
       <%=f.input_field :first_name %>

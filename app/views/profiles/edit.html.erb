@@ -1,5 +1,5 @@
 <h2>Edit Profile</h2>
-<%=form_for @profile do |f| %>
+<%= simple_form_for @profile do |f| %>
     <p>
       <%=f.label :first_name %><br>
       <%=f.input_field :first_name %>
