@@ -2,7 +2,7 @@ profil düzenleme sayfası
 profil düzenleme sayfası
 
 <h2>Edit Profile</h2>
-<%= simple_form_for @user do |f| %>
+<%=simple_form_for @user do |f| %>
     <p>
       <%=f.label :first_name %><br>
       <%=f.input_field :first_name %>
@@ -26,5 +26,7 @@ profil düzenleme sayfası
     <p>
       <%= f.submit %>
     </p>
-    <%= link_to 'Back', root_path %>
+
 <% end %>
+
+<%= link_to 'Back', root_path %>

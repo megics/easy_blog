@@ -5,10 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def edit
-  #   @user = User.find(params[:user_id])
-  #   @profile = @user.find(params[:id])
-  # end
+   def edit
+     @user = User.find(params[:id])
+     @profile = @user.find(params[:id])
+   end
 
   def show
     @user = User.find(params[:id])

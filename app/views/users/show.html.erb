@@ -1,9 +1,14 @@
 <h2>User Profile</h2>
 
-<%= @user.profile.first_name %> <%= @user.profile.last_name %><br>
-<%= @user.profile.phone %><br>
-<%= @user.profile.university %><br>
-<%= @user.profile.address %>
+<p><b>FIRST NAME:</b> <%= @user.profile.first_name %> </p>
+<p><b>LAST NAME: </b><%= @user.profile.last_name %> </p>
+<p><b>PHONE NUMBER: </b><%= @user.profile.phone %> </p>
+<p><b>UNIVERSITY: </b><%= @user.profile.university %> </p>
+<p><b>ADDRESS: </b><%= @user.profile.address %> </p>
+
+
+<%= link_to 'Edit Profile', 'current_user/edit' %><br>
+
 <br><br>
-<%= link_to 'Edit Profile', 'profile/edit' %><br>
+
 <%= link_to 'Back', edit_user_registration_path %>
