@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   #before_action get_article, only: [:show, :edit, :update, :destroy]
+  #http_basic_authenticate_with email: "dhh", password: "secret", except: [:index, :show]
 
   def index
     @articles = Article.all

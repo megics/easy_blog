@@ -9,6 +9,33 @@
   </head>
 
   <body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <header class="navbar  navbar-inverse">
+    <div class="navbar-class">
+      <div class="container">
+
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">HOME</a></li>
+
+          <% if user_signed_in? %>
+              <li><%= link_to "Articles", articles_path %></li>
+              <li><%= link_to "User Settings", edit_user_registration_path %></li>
+              <li><%= link_to "Help", '#' %></li>
+              <li><b> <%= link_to "Logout", destroy_user_session_path, :method => :delete %></b></li>
+          <% else %>
+              <li><b><%= link_to "Sign in", new_user_session_path %></b></li>
+          <% end %>
+        </ul>
+
+
+      </div>
+    </div>
+  </header>
     <%= yield %>
   </body>
 </html>
