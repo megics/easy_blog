@@ -34,8 +34,9 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Articles', articles_path %></li>
+          <li><%= link_to "HOME", root_path %></li>
           <% if current_user %>
+              <li><%= link_to "Articles", articles_path %></li>
               <li><%= link_to "Profile", current_user %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Categories", categories_index_path %></li>
@@ -49,10 +50,16 @@
     </div>
   </nav>
 
-
   <div class="container">
     <%= yield %>
   </div>
+    <div class="row" style="margin-top: 30px;">
+      <footer class="footer" style="height: 40px; width: 100%;">
+        <div class="footer-content">
+          <center><p class="text-muted" style="line-height: 30px">Copyright © 2017 LAB2023 Ruby on Rails Challenge </p></center>
+        </div>
+      </footer>
+    </div>
 
   </body>
 </html>
