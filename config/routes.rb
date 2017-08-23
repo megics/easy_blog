@@ -18,4 +18,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :articles do
+    resources :categories
+  end
+
 end
