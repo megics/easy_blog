@@ -1,0 +1,33 @@
+%h1 User Profile
+.body
+  = image_tag(current_user.avatar.url(:thumb))
+.container
+  %p
+    %b FIRST NAME:
+    = @user.first_name
+  %p
+    %b LAST NAME:
+    = @user.last_name
+  %p
+    %b GENDER:
+    = @user.is_female
+  %p
+    %b BIRTHDAY:
+    = @user.birth_date
+  %p
+    %b PHONE NUMBER:
+    = @user.phone
+  %p
+    %b UNIVERSITY:
+    = @user.university
+  %p
+    %b ADDRESS:
+    = @user.address
+  %p
+    %b EMAIL:
+    = @user.email
+= link_to 'Edit Profile', 'edit'
+%br/
+%br/
+%br/
+= link_to 'Back', edit_user_registration_path

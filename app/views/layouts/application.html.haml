@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title EasyBlog
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - flash.each do |key, value|
+      %div{:class => "alert alert-#{key} alert-dismissable"}
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+        = value
+    / this is code we will cut out and put inside menu partial
+    %nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle{"data-target" => "#mainNavbar", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to "EASY BLOG", '#', class: 'navbar-brand'
+        #navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "HOME", root_path
+            - if current_user
+              %li= link_to "Articles", articles_path
+              %li= link_to "Profile", current_user
+              %li= link_to "Edit Profile", edit_user_registration_path
+              %li= link_to "Categories", categories_index_path
+              %li= link_to 'Logout', destroy_user_session_path, method: :delete
+              %li.round-image-50= image_tag(current_user.avatar.url(:thumb))
+            - else
+              %li= link_to 'Login', new_user_session_path
+    .container
+      = yield
+    .row{:style => "margin-top: 30px;"}
+      %footer.footer{:style => "height: 40px; width: 100%;"}
+        .footer-content
+          %center
+            %p.text-muted{:style => "line-height: 30px"} Copyright © 2017 LAB2023 Ruby on Rails Challenge
