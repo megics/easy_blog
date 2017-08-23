@@ -1,24 +1,15 @@
-# README
+# EASY BLOG
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bu projede http://guides.rubyonrails.org/getting_started.html sitesindeki blog yapımının gemlerle desteklenmesini uyguladım.
 
-Things you may want to cover:
+* Kullanılan Gem'ler:
 
-* Ruby version
+- devise
+- simple_form
+- haml-rails
+- bootstrap-sass
+- paperclip
 
-* System dependencies
+* Projeyi clone yapınca bundle install yapıp gerekli gem kurulumları yapılmalıdır.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
