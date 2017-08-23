@@ -1,1 +1,11 @@
-newww
+<%= simple_form_for @categories do |c| %>
+    <p>
+      <%= c.label :name %>
+      <%= c.text_field :name %>
+    </p>
+
+    <p>
+      <%= c.submit %>
+    </p>
+
+<% end %>
