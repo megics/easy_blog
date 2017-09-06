@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
   #http_basic_authenticate_with email: "dhh", password: "secret", except: [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = current_user.article
+      # unless @user == current_user
+      #   @articles = Article.all
+      # end
   end
 
   def new
