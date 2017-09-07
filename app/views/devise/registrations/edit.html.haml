@@ -1,6 +1,6 @@
 %h2
   Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   .form-group
     = f.label :avatar, class: 'col-sm-1 control-label'
@@ -18,11 +18,11 @@
     %br/
     = f.text_field :last_name
   .form-group
-    = f.check_box :is_female, {}, true
-    = f.label :is_female, "Female"
-  .form-group
-    = f.check_box :is_female, {}, false
-    = f.label :is_female, "Male"
+    = f.radio_button :gender, 'female', :checked => true
+    = f.label :gender, 'female', :value => 0
+    = f.radio_button :gender, 'male'
+    = f.label :gender, 'male', :value => 1
+    %br/
   .form-group
     = f.label :birth_date
     %br/
