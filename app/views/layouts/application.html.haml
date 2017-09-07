@@ -23,8 +23,8 @@
         #navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "HOME", root_path
+            %li= link_to "Articles", articles_path
             - if current_user
-              %li= link_to "Articles", articles_path
               %li= link_to "Profile", current_user
               %li= link_to "Edit Profile", edit_user_registration_path
               %li= link_to "Categories", categories_index_path

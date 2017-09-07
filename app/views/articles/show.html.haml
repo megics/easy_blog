@@ -4,6 +4,9 @@
 %p
   %strong Text:
   = @article.text
+%p
+  %strong Author:
+  = @article.user.first_name
 %h2 Comments
 = render @article.comments
 %br/

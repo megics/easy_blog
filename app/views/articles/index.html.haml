@@ -4,16 +4,22 @@
   %tr
     %th Title
     %th Text
+    %th Author
     %th{:colspan => "3"}
   - @articles.each do |article|
     %tr
       %td= article.title
       %td= article.text
-      %td= link_to 'Show', article_path(article)
-      %td= link_to 'Edit', edit_article_path(article)
-      %td= link_to 'Destroy', article_path(article), |
+      %td= article.user.first_name
+      - if user_signed_in? && article.user == current_user
+        %td= link_to 'Show', article_path(article)
+        %td= link_to 'Edit', edit_article_path(article)
+        %td= link_to 'Destroy', article_path(article), |
           method: :delete,                          |
           data: { confirm: 'Are you sure?' }        |
+      - else
+        %td= link_to 'Show', article_path(article)
+%br/
 %br/
 %br/
 = link_to 'Back to Homepage', welcome_index_path
