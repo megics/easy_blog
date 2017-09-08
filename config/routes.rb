@@ -18,8 +18,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :articles do
-    resources :categories
-  end
+  resources :categories, only: [:index, :show]
 
 end

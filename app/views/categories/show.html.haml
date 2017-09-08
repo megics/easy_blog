@@ -1,2 +1,10 @@
-%h1 Categories#show
-%p Find me in app/views/categories/show.html.erb
+%h1
+  =@category.name
+%br/
+- @category.articles.each do |c|
+  %li
+    =link_to c.title, article_path(c)
+
+
+
+

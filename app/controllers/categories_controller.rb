@@ -3,22 +3,8 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def new
-    @categories = Category.new
-  end
-
-  def create
-    @category = Category.create(category_params)
-  end
-
   def show
-    @category = Category.find(params[:id])
-  end
-
-  private
-
-  def category_params
-    params.category(:category).permit(:name)
+    @category = Category.find_by(id: params[:id])
   end
 
 end

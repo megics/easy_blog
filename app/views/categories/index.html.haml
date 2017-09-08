@@ -1,9 +1,8 @@
 %h1 CATEGORIES
 - @categories.each do |category|
-  = category.name
+  %li
+    = link_to category.name, category_path(category)
   %br/
-%h4 Do you want create category?
-%p= link_to "Click Here!", categories_new_path
-%br/
-%br/
+  %br/
+
 = link_to 'Back', root_path

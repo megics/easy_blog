@@ -1,25 +1,17 @@
 class ArticlesController < ApplicationController
-  #before_action get_article, only: [:show, :edit, :update, :destroy]
-  #http_basic_authenticate_with email: "dhh", password: "secret", except: [:index, :show]
 
   def index
     @articles = Article.all
-      # unless @user == current_user
-      #   @articles = Article.all
-      # end
   end
 
   def new
-    #@articles_category = Category.new
     @article = Article.new
+    @categories = Category.all.collect{|m| [m.name, m.id] }
   end
 
   def create
-    #@articles_category = Category.new(category_params)
-    #@article = current_user.build_article(article_params)
     @article = Article.new(article_params)
     @article.user = current_user
-
     if @article.save
       redirect_to @article
     else
@@ -33,13 +25,16 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @categories = Category.all.collect{|m| [m.name, m.id] }
   end
 
   def update
     @article = Article.find(params[:id])
+    @article.category_id = params[:category_id]
     if @article.update(article_params)
       redirect_to @article
     else
+      @categories = Category.all.collect{|m| [m.name, m.id] }
       render 'edit'
     end
   end
@@ -53,18 +48,17 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:title, :text, :category_id)
   end
+
+  # def load_categories
+  #   @categories = Category.all.collect{|m| [m.name, m.id] }
+  # end
 
   # def category_params
   #   params.require(:category).permit(:name)
   # end
   #
 
-=begin
-  def get_article
-    @article = Article.find(params[:id])
-  end
-=end
 
 end
