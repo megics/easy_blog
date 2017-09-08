@@ -30,7 +30,6 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    @article.category_id = params[:category_id]
     if @article.update(article_params)
       redirect_to @article
     else
@@ -48,7 +47,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text, :category_id)
+    params.require(:article).permit(:title, :text, {category_ids:[]})
   end
 
   # def load_categories
