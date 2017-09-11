@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :hq do
+    root to: 'hq#index'
+  end
+
   devise_for :admins
   get 'categories/index'
 

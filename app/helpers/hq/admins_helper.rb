@@ -1,0 +1,2 @@
+module Hq::AdminsHelper
+end
