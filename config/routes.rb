@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :hq do
+    get 'dashboard/index'
+  end
+
+  namespace :hq do
+    root to: 'dashboard#index'
     resources :admins
-    root to: 'hq#index'
+    resources :dashboard, only: [:index]
   end
 
   devise_for :admins, controllers: { sessions: 'hq/sessions', registrations: 'hq/registrations', passwords: 'hq/passwords' }, path: 'hq',
