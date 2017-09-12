@@ -38,6 +38,7 @@ gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml-rails', '~> 1.0'
 gem 'breadcrumbs_on_rails'
+gem 'rails-i18n', '~> 5.0.0'
 
 
 group :development, :test do
