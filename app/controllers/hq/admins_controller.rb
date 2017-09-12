@@ -1,5 +1,7 @@
 class Hq::AdminsController < ApplicationController
+
   before_action :set_admin, only: [:show, :edit, :update, :destroy, :toggle_is_active]
+  ## add_breadcrumb "Yöneticiler", :hq_admins_path
 
   def index
   end
@@ -8,6 +10,9 @@ class Hq::AdminsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
   end
 
   def destroy
@@ -20,6 +25,10 @@ class Hq::AdminsController < ApplicationController
   end
 
   def admin_params
+
+  end
+
+  def toggle_is_active
 
   end
 
