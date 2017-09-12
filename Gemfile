@@ -37,6 +37,8 @@ gem 'simple_form'
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml-rails', '~> 1.0'
+gem 'breadcrumbs_on_rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
