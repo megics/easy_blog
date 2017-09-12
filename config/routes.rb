@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
+
   namespace :hq do
+    resources :admins
     root to: 'hq#index'
   end
 
-  devise_for :admins
+  devise_for :admins, controllers: { sessions: 'hq/sessions', registrations: 'hq/registrations', passwords: 'hq/passwords' }, path: 'hq',
+             path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',  confirmation: 'verification' }
+
+  as :admin do
+    get 'hq/edit' => 'hq/registrations#edit', as: 'edit_hq_registration'
+    put 'hq' => 'hq/registrations#update', as: 'hq_registration'
+  end
+
   get 'categories/index'
 
   get 'categories/new'

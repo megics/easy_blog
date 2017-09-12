@@ -397,21 +397,17 @@ category_id</ColNames>
     <column id="96" parent="12" name="gender">
       <Position>19</Position>
       <DataType>integer|0</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
     </column>
-    <column id="97" parent="12" name="admin">
-      <Position>20</Position>
-      <DataType>boolean|0</DataType>
-      <DefaultExpression>&apos;f&apos;</DefaultExpression>
-    </column>
-    <index id="98" parent="12" name="index_users_on_email">
+    <index id="97" parent="12" name="index_users_on_email">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="99" parent="12" name="index_users_on_reset_password_token">
+    <index id="98" parent="12" name="index_users_on_reset_password_token">
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="100" parent="12">
+    <key id="99" parent="12">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

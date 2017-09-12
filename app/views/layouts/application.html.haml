@@ -30,8 +30,13 @@
               %li= link_to "Categories", categories_index_path
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
               %li.round-image-50= image_tag(current_user.avatar.url(:thumb))
+
+            - if current_admin
+              %li= link_to 'Logout', destroy_admin_session_path, method: :delete
+
             - else
               %li= link_to 'Login', new_user_session_path
+              %li= link_to 'Admin Login', new_admin_session_path
     .container
       = yield
     .row{:style => "margin-top: 30px;"}
