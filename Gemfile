@@ -40,6 +40,12 @@ gem 'haml-rails', '~> 1.0'
 gem 'breadcrumbs_on_rails'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'responders'
+gem 'haml'
+gem 'compass-rails', '~> 3.0', '>= 3.0.2'
+gem 'susy'
+gem 'hierapolis-rails'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

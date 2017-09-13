@@ -20,6 +20,7 @@ module EasyBlog
 
     config.i18n.default_locale = :en
     config.i18n.fallbacks = true
+    config.compass.require "susy"
 
   end
 end
