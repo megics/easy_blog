@@ -39,7 +39,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'haml-rails', '~> 1.0'
 gem 'breadcrumbs_on_rails'
 gem 'rails-i18n', '~> 5.0.0'
-
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

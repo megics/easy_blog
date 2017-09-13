@@ -1,6 +1,5 @@
 class Hq::SessionsController < Devise::SessionsController
   layout 'hq/login'
-
   private
 
   # Overwriting the sign_out redirect path method

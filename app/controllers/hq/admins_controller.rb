@@ -1,4 +1,5 @@
-class Hq::AdminsController < ApplicationController
+class Hq::AdminsController < Hq::ApplicationController
+  layout 'hq/application'
 
   before_action :set_admin, only: [:show, :edit, :update, :destroy, :toggle_is_active]
   ## add_breadcrumb "Yöneticiler", :hq_admins_path

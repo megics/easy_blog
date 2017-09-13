@@ -15,7 +15,7 @@
           %i.fa.fa-users
           = "Yöneticiler"
       %li
-        = link_to hq_users_path do
+        = link_to hq_admins_path do
           %i.fa.fa-users
           = "Kullanıcılar"
 
@@ -25,9 +25,8 @@
     %a{href: '#'}= "Sistem verileri"
     %ul.dropdown-menu
       %li
-        =link_to hq_categories_path do
+        =link_to "#" do
           %i.fa.fa-database
           = "Kategoriler"
-
 
 #beaker{data: {toggle: 'tooltip'}, title: 'Made by lab2023'}
