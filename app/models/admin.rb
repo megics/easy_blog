@@ -6,4 +6,8 @@ class Admin < ApplicationRecord
 
   has_many :categories
 
+  def full_name
+    "#{self.name} #{self.surname}"
+  end
+
 end

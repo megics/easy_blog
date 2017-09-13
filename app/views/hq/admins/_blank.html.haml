@@ -1,0 +1,9 @@
+- if params[:q].present?
+  = render 'list'
+- else
+  .alert.alert-warning
+    %p
+      %h3= "Hiç #{Admin.model_name.human.downcase} eklenmemiş."
+      = link_to new_hq_admin_path, class: 'btn btn-primary' do
+        = Admin.model_name.human
+        = "Ekle"

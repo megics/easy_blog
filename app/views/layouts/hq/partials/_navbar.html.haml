@@ -1,22 +1,61 @@
+-##navbar.navbar.navbar-default
+-#  %a.navbar-brand{href: hq_dashboard_index_path}
+-#    %i.icon-beer
+-#    Easy Blog Yönetici Portalı
+-#  %ul.nav.navbar-nav.pull-right
+-#    %li
+-#      = link_to hq_admins_path do
+-#        -#audits olacak üst satır
+-#        %i.icon-cog
+-#        = "İşlem Geçmişleri"
+-#    %li.dropdown.user
+-#      %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
+-#        %i.icon-user
+-#        %strong
+-#          = current_admin.email
+-#        %b.caret
+-#      %ul.dropdown-menu
+-#        %li
+-#          =link_to "Giriş bilgilerini güncelle", edit_admin_registration_path
+-#        %li.divider
+-#        %li
+-#          =link_to "Çıkış yap", destroy_admin_session_path, method: :delete
+
+
 #navbar.navbar.navbar-default
-  %a.navbar-brand{href: hq_dashboard_index_path}
+  %a.navbar-brand{:href => '#'}
     %i.icon-beer
-    Easy Blog Yönetici Portalı
+    EASY BLOG YÖNETİCİ PORTALI
   %ul.nav.navbar-nav.pull-right
     %li
-      = link_to hq_admins_path do
-        -#audits olacak üst satır
+      %a{href: '#'}
         %i.icon-cog
-        = "İşlem Geçmişleri"
-    %li.dropdown.user
-      %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'}
-        %i.icon-user
-        %strong
-          = current_admin.email
+        İşlem Geçmişleri
+    %li.dropdown
+      %a.dropdown-toggle{data: {toggle: 'dropdown'}, :href => '#'}
+        %i.icon-envelope
+        Messages
+        %span.badge 5
         %b.caret
       %ul.dropdown-menu
         %li
-          =link_to "Giriş bilgilerini güncelle", edit_admin_registration_path
+          %a{:href => '#'} New message
+        %li
+          %a{:href => '#'} Inbox
+        %li
+          %a{:href => '#'} Out box
+        %li
+          %a{:href => '#'} Trash
+    %li.dropdown.user
+      %a.dropdown-toggle{'data-toggle' => 'dropdown', :href => '#'}
+        %i.icon-user
+        %strong
+          = current_admin.email
+        =image_tag 'http://lorempixel.com/output/fashion-q-c-20-20-4.jpg', width: '20px', height: '20px', class: 'img-rounded'
+        %b.caret
+      %ul.dropdown-menu
+        %li
+          %a{:href => edit_admin_registration_path} Giriş Bilgilerini Düzenle
         %li.divider
         %li
-          =link_to "Çıkış yap", destroy_admin_session_path, method: :delete
+          =link_to 'Çıkış yap', destroy_admin_session_path, method: :delete

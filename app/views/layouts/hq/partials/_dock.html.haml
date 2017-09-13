@@ -1,32 +1,31 @@
 %i#toggle.icon-align-justify.icon-large
 
 %ul#dock
-
   %li.launcher
     %i.icon-dashboard
-    =link_to  "Kontrol Paneli", hq_dashboard_index_path
-
+    =link_to 'Kontrol Paneli', '/hq/dashboard/index'
   %li.launcher.dropdown.hover
-    %i.fa.fa-list
-    %a{href: '#'}= "Sistem Kullanıcıları"
+    %i.icon-user
+    =link_to 'Sistem Kullanıcıları', '#'
     %ul.dropdown-menu
+      %li.dropdown-header Hesaplar:
       %li
-        = link_to hq_admins_path do
-          %i.fa.fa-users
-          = "Yöneticiler"
+        =link_to 'Yöneticiler', hq_admins_path
       %li
-        = link_to hq_admins_path do
-          %i.fa.fa-users
-          = "Kullanıcılar"
-
-  %br/
+        =link_to 'Kullanıcılar', hq_users_path
+    %br/
   %li.launcher.dropdown.hover
-    %i.fa.fa-list
-    %a{href: '#'}= "Sistem verileri"
+    %i.icon-list
+    %a{href: '#'} Sistem Verileri
     %ul.dropdown-menu
+      %li.dropdown-header Veriler:
       %li
-        =link_to "#" do
-          %i.fa.fa-database
-          = "Kategoriler"
+        =link_to 'Makaleler', '#'
+      %li
+        =link_to 'Yorumlar', '#'
+      %li
+        =link_to 'Kategoriler', '#'
 
-#beaker{data: {toggle: 'tooltip'}, title: 'Made by lab2023'}
+
+#beaker{data: {toggle: 'tooltip'}, title: 'Made by lab2023 internship megic'}
+

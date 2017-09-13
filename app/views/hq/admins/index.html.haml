@@ -1,0 +1,32 @@
+- content_for :toolbar do
+  = link_to new_hq_admin_path, class: 'btn btn-default' do
+    %i.icon-plus
+    = "#{Admin.model_name.human} Ekle"
+
+.panel.panel-default.grid
+  .panel-heading
+    %i.fa.fa-table.icon-large
+    Yöneticiler
+    .panel-tools
+      TOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOLS
+
+
+  .panel-footer
+    .pagination.pagination-sm
+      %table{:border =>1, :width => "100%"}
+        %tr
+          %th ID
+          %th İsim
+          %th E-posta
+          %th Güncel Giriş Tarihi
+          %th Son Giriş Tarihi
+          %th Aktif mi?
+          %th{:colspan => "3"}
+        -@admins.each do |admin|
+          %tr
+            %td= admin.id
+            %td= admin.name
+            %td= admin.email
+            %td= admin.current_sign_in_at
+            %td= admin.last_sign_in_at
+            %td= admin.is_active

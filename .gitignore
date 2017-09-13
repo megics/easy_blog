@@ -26,3 +26,4 @@
 .idea
 .idea/
 .idea/**/*
+.sass-cache

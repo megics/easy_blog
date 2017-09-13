@@ -3,7 +3,7 @@ class Hq::RegistrationsController < Devise::RegistrationsController
 
   before_action :authenticate_admin!
   before_action :redirect_admin, only: [:new, :create, :destroy]
-  ## add_breadcrumb "Kontrol Paneli", :hq_dashboard_index_path
+  add_breadcrumb "Kontrol Paneli", :hq_dashboard_index_path
 
   def edit
 

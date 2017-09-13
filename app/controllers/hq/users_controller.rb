@@ -1,7 +1,7 @@
 class Hq::UsersController < Hq::ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #add_breadcrumb "Kullanıcılar", :hq_users_path
+  add_breadcrumb "Kullanıcılar", :hq_users_path
 
 
   private

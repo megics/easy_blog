@@ -44,6 +44,7 @@ gem 'haml'
 gem 'compass-rails', '~> 3.0', '>= 3.0.2'
 gem 'susy'
 gem 'hierapolis-rails'
+gem 'responders'
 
 
 
