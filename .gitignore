@@ -26,4 +26,5 @@
 .idea
 .idea/
 .idea/**/*
-.sass-cache
+styles/.sass-cache
+styles/.sass-cache/*
