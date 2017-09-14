@@ -25,6 +25,9 @@
     / Stylesheets (Don't change include order)
     = stylesheet_link_tag 'application',
                           '//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css'
+    / Javascripts
+    = javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js',
+                              'hq/application', 'data-turbolinks-track' => true
     = yield :head
 
   %body.main
@@ -43,6 +46,7 @@
         = render partial: 'layouts/hq/partials/breadcrumb'
         = render partial: 'layouts/hq/partials/toolbar'
 
+      #content
         = yield
 
     / Footer

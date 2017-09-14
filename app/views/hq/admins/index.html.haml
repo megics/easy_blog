@@ -11,7 +11,8 @@
       TOOOOOOOOOOOOOOOLS
   .panel-body
     BBBBBBODY
-    %table
+  %table
+    %thead
       %tr
         %th ID
         %th İsim
@@ -19,16 +20,25 @@
         %th Güncel Giriş Tarihi
         %th Son Giriş Tarihi
         %th Aktif mi?
-        -@admins.each do |admin|
-          %tr
-            %td= admin.id
-            %td= admin.name
-            %td= admin.email
-            %td= admin.current_sign_in_at
-            %td= admin.last_sign_in_at
-            %td= admin.is_active
-
-
+        %th.actions
+          = "İşlemler"
+    %tbody.admins
+      -@admins.each do |admin|
+        %tr{class: admin.is_active ? 'active' : 'passive'}
+          %td= admin.id
+          %td= admin.name
+          %td= admin.email
+          %td= admin.current_sign_in_at if admin.current_sign_in_at.present?
+          %td= admin.last_sign_in_at if admin.last_sign_in_at.present?
+          %td= admin.is_active ? "Aktif" : "Pasif"
+          %td.action
+            = link_to([:hq, admin], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+              %i.icon-zoom-in
+            = link_to(edit_hq_admin_path(admin) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+              %i.icon-edit
+            - if admin.id != current_admin.id
+              = link_to([:hq, admin], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+                %i.icon-trash
 
   .panel-footer
     .pagination.pagination-sm
