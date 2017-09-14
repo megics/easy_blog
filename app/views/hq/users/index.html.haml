@@ -1,0 +1,42 @@
+- content_for :toolbar do
+  = link_to new_hq_user_path, class: 'btn btn-default' do
+    %i.icon-plus
+    = "Kullanıcı Ekle"
+
+.panel.panel-default.grid
+  .panel-heading
+    %i.fa.fa-table.icon-large
+    = "Kullanıcılar"
+    .panel-tools
+      TOOOOOOLS
+  .panel-body
+    BBBBBBODY
+    %table
+      %tr
+        %th ID
+        %th Ad
+        %th Soyad
+        %th E-posta
+        %th Doğum Tarihi
+        %th Cinsiyet
+        %th Telefon
+        %th Üniversite
+        %th Adres
+        %th Güncel Giriş Tarihi
+        %th Son Giriş Tarihi
+        -@users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.first_name
+            %td= user.last_name
+            %td= user.email
+            %td= user.birth_date
+            %td= user.gender
+            %td= user.phone
+            %td= user.university
+            %td= user.address
+            %td= user.current_sign_in_at
+            %td= user.last_sign_in_at
+  .panel-footer
+    .pagination.pagination-sm
+      FOOTER

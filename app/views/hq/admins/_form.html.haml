@@ -12,6 +12,6 @@
         = f.input :email
 
       .form-actions
-        - text = @admin.id.present? ? "Güncelle" : 'btn.add'
+        - text = @admin.id.present? ? "Güncelle" : 'Güncelle'
         = f.button :submit, text, class: 'btn btn-primary'
         = link_to "Geri", hq_admins_path, class: 'btn'
