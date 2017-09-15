@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#index'
     resources :admins, concerns: [:activeable]
     resources :dashboard, only: [:index]
-    resources :users
+    resources :users, concerns: [:activeable]
     resources :categories
   end
 

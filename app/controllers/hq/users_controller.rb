@@ -1,6 +1,6 @@
 class Hq::UsersController < Hq::ApplicationController
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_is_active]
   add_breadcrumb "Kullanıcılar", :hq_users_path
 
   def index
@@ -38,6 +38,17 @@ class Hq::UsersController < Hq::ApplicationController
   def destroy
     @user.destroy
     respond_with(:hq, @user, location: request_referer)
+  end
+
+  def toggle_is_active
+    if @user.update( is_active: !@user.is_active )
+      @user.is_active ?
+          flash[:info] = "#{Admin.model_name.human} başarıyla aktif edildi" :
+          flash[:info] = "#{Admin.model_name.human} başarıyla pasif edildi"
+    else
+      flash[:danger] = "HATA"
+    end
+    respond_with(:hq, @user, location: request.referer)
   end
 
 

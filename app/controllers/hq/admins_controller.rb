@@ -47,8 +47,8 @@ class Hq::AdminsController < Hq::ApplicationController
   def toggle_is_active
     if @admin.update( is_active: !@admin.is_active )
       @admin.is_active ?
-          flash[:info] = "#{Admin.model_name.human} başarıyla aktif edildi" :
-          flash[:info] = "#{Admin.model_name.human} başarıyla pasif edildi"
+          flash[:info] = "#{User.model_name.human} başarıyla aktif edildi" :
+          flash[:info] = "#{User.model_name.human} başarıyla pasif edildi"
     else
       flash[:danger] = "HATA"
     end

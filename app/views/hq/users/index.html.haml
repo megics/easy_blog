@@ -10,7 +10,9 @@
     .panel-tools
       TOOOOOOLS
   .panel-body
-    BBBBBBODY
+  .panel-body-filters
+    = render 'filters'
+  %br/
   %table
     %thead
       %tr
@@ -48,6 +50,12 @@
               %i.icon-edit
             = link_to([:hq, user], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
               %i.icon-trash
+            - if user.is_active
+              = link_to(toggle_is_active_hq_user_path(user), class: 'btn btn-danger', method: :post, data: { toggle: :tooltip}, title: "Pasif et" ) do
+                %i.icon-ban-circle
+            -else
+              = link_to(toggle_is_active_hq_user_path(user), class: 'btn btn-info', method: :post, data: { toggle: :tooltip}, title: "Aktif et") do
+                %i.icon-check
 
   .panel-footer
     .pagination.pagination-sm
