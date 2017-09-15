@@ -1,0 +1,34 @@
+- content_for :toolbar do
+  = link_to new_hq_category_path, class: 'btn btn-default' do
+    %i.icon-new
+    = "Kategori Ekle"
+
+.panel.panel-default.grid
+  .panel-heading
+    %i.fa.fa-table.icon-large
+    = "Kategoriler"
+    .panel-tools
+      TOOOOOOLS
+  .panel-body
+    BBBBBBODY
+  %table
+    %thead
+      %tr
+        %th Kategori Adı
+        %th.actions
+          = "İşlemler"
+    %tbody.categories
+      -@categories.each do |c|
+        %tr
+          %td= c.name
+          %td.action
+            = link_to([:hq, c], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+              %i.icon-zoom-in
+            = link_to(edit_hq_category_path(c) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+              %i.icon-edit
+            = link_to([:hq, c], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+              %i.icon-trash
+
+  .panel-footer
+    .pagination.pagination-sm
+      FOOTER

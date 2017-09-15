@@ -35,7 +35,7 @@ class Hq::UsersController < Hq::ApplicationController
   end
 
   def destroy
-    quser.destroy
+    @user.destroy
     respond_with(:hq, @user, location: request_referer)
   end
 

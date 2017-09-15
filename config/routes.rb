@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :admins
     resources :dashboard, only: [:index]
     resources :users
+    resources :categories
   end
 
 
