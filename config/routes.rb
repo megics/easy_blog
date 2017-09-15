@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  concern :activeable do
+    post :toggle_is_active, on: :member
+  end
+
   devise_for :admins, controllers: { sessions: 'hq/sessions', registrations: 'hq/registrations', passwords: 'hq/passwords' }, path: 'hq',
              path_names: { sign_in: 'login', sign_out: 'logout', password: 'secret',  confirmation: 'verification' }
 
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
   namespace :hq do
     get 'dashboard/index'
     root to: 'dashboard#index'
-    resources :admins
+    resources :admins, concerns: [:activeable]
     resources :dashboard, only: [:index]
     resources :users
     resources :categories

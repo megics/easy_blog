@@ -1,7 +1,7 @@
 class Hq::AdminsController < Hq::ApplicationController
   layout 'hq/application'
 
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: [:show, :edit, :update, :destroy, :toggle_is_active]
   add_breadcrumb "Yöneticiler", :hq_admins_path
 
   def index
@@ -41,6 +41,17 @@ class Hq::AdminsController < Hq::ApplicationController
 
   def destroy
     @admin.destroy
+    respond_with(:hq, @admin, location: request.referer)
+  end
+
+  def toggle_is_active
+    if @admin.update( is_active: !@admin.is_active )
+      @admin.is_active ?
+          flash[:info] = "#{Admin.model_name.human} başarıyla aktif edildi" :
+          flash[:info] = "#{Admin.model_name.human} başarıyla pasif edildi"
+    else
+      flash[:danger] = "HATA"
+    end
     respond_with(:hq, @admin, location: request.referer)
   end
 
