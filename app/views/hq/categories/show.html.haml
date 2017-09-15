@@ -1,1 +1,13 @@
-SHOW
+- content_for :toolbar do
+  = link_to edit_hq_category_path(@category), class: 'btn btn-default' do
+    %i.icon-pencil
+    = "Düzenle"
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    Kategori Detay
+  .panel-body
+    = show_for @category do |s|
+      = s.attribute :name
+      = s.attribute :created_at
+      = s.attribute :updated_at

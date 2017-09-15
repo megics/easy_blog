@@ -1,0 +1,12 @@
+%tr
+  %td= category.name
+  %td= category.created_at
+  %td= category.updated_at
+
+  %td.action
+    = link_to([:hq, category], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+      %i.icon-zoom-in
+    = link_to(edit_hq_category_path(category) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+      %i.icon-edit
+    = link_to([:hq, category], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+      %i.icon-trash

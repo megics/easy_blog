@@ -1,6 +1,6 @@
 class Hq::CategoriesController < ApplicationController
   layout 'hq/application'
-
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   add_breadcrumb "Kategoriler", :hq_categories_path
 
   def index
@@ -17,6 +17,12 @@ class Hq::CategoriesController < ApplicationController
     add_breadcrumb "Yeni Kategori", new_hq_category_path
     @category = Category.new
     respond_with(@category)
+  end
+
+  def create
+    @category = Category.new(category_params)
+    @category.save
+    respond_with(:hq, @category)
   end
 
   def edit
@@ -37,7 +43,11 @@ class Hq::CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:@category).permit(:name)
+    params.require(:category).permit(:name)
+  end
+
+  def set_category
+    @category = Category.find(params[:id])
   end
 
 end

@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    = yield :form_title
+  .panel-body
+    = simple_form_for([:hq, @category], validate: true) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :name
+
+      .form-actions
+        - text = @category.id.present? ? "Güncelle" : "Ekle"
+        = f.button :submit, text, class: 'btn btn-primary'
+        = link_to "Geri", hq_categories_path, class: 'btn'
