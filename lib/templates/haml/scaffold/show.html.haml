@@ -1,13 +1,8 @@
-- content_for :toolbar do
-  = link_to edit_<%= singular_table_name %>_path(@<%= singular_name %> ), class: 'btn btn-default' do
-    %i.icon-pencil
-    = t('action_button.edit')
-.panel.panel-default
-  .panel-heading
-    %i.icon-edit.icon-large
-    = t('tt.show', resource_name: <%= singular_table_name.capitalize %>.model_name.human)
-  .panel-body
-    = show_for @<%= singular_name %> do |s|
-<% attributes.each do |attribute| -%>
-      = s.<%= attribute.reference? ? :association : :attribute %> :<%= attribute.name %>
+= show_for(@<%= singular_name %>) do |s|
+<%- attributes.each do |attribute| -%>
+  = s.<%= attribute.reference? ? :association : :attribute %> :<%= attribute.name %>
 <% end -%>
+
+= link_to 'Edit', edit_<%= singular_name %>_path(@<%= singular_name %>)
+|
+= link_to 'Back', <%= plural_name %>_path

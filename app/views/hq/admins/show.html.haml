@@ -5,13 +5,12 @@
 .panel.panel-default
   .panel-heading
     %i.icon-edit.icon-large
-    = Admin.model_name.human
+    Yönetici Detay
   .panel-body
     = show_for @admin do |s|
       = s.attribute :name
       = s.attribute :surname
-      = s.attribute :email do
-        = mail_to @admin.email, @admin.email
+      = s.attribute :email
       = s.attribute :is_active
       = s.attribute :current_sign_in_at
       = s.attribute :last_sign_in_at

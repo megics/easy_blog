@@ -1,0 +1,21 @@
+%tr{class: admin.is_active ? 'active' : 'passive'}
+  %td= admin.id
+  %td= admin.full_name
+  %td= admin.email
+  %td=l admin.current_sign_in_at if admin.current_sign_in_at.present?
+  %td=l admin.last_sign_in_at if admin.last_sign_in_at.present?
+  %td= admin.is_active ? "Aktif" : "Pasif"
+  %td.action
+    = link_to([:hq, admin], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+      %i.icon-zoom-in
+    = link_to(edit_hq_admin_path(admin) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+      %i.icon-edit
+    - if admin.id != current_admin.id
+      = link_to([:hq, admin], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+        %i.icon-trash
+      - if admin.is_active
+        = link_to(toggle_is_active_hq_admin_path(admin), class: 'btn btn-danger', method: :post, data: { toggle: :tooltip}, title: "Pasif et" ) do
+          %i.icon-ban-circle
+      - else
+        = link_to(toggle_is_active_hq_admin_path(admin), class: 'btn btn-info', method: :post, data: { toggle: :tooltip}, title: "Aktif et") do
+          %i.icon-check
