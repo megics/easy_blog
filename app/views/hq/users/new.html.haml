@@ -1,1 +1,5 @@
-NEW USER
+- content_for :form_title do
+  Yeni Kullanıcı Ekle
+.alert.alert-info
+  = "Yeni bir kullanıcı eklediğinizde email adresine giriş bilgileri gönderilecektir."
+= render 'form'

@@ -1,0 +1,22 @@
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    = yield :form_title
+  .panel-body
+    = simple_form_for([:hq, @user], validate: true) do |f|
+      = f.error_notification
+
+      .form-inputs
+        = f.input :first_name
+        = f.input :last_name
+        = f.input :email
+        = f.input :birth_date
+        = f.input :phone
+        = f.input :university
+        = f.input :address
+        = f.input :gender
+
+      .form-actions
+        - text = @user.id.present? ? "Güncelle" : "Ekle"
+        = f.button :submit, text, class: 'btn btn-primary'
+        = link_to "Geri", hq_users_path, class: 'btn'

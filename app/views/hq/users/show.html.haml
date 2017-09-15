@@ -1,0 +1,22 @@
+- content_for :toolbar do
+  = link_to edit_hq_user_path(@user ), class: 'btn btn-default' do
+    %i.icon-pencil
+    = "Düzenle"
+.panel.panel-default
+  .panel-heading
+    %i.icon-edit.icon-large
+    Kullanıcı Detay
+  .panel-body
+    = show_for @user do |s|
+      = s.attribute :first_name
+      = s.attribute :last_name
+      = s.attribute :email
+      = s.attribute :birth_date
+      = s.attribute :phone
+      = s.attribute :university
+      = s.attribute :address
+      = s.attribute :gender
+      = s.attribute :current_sign_in_at
+      = s.attribute :last_sign_in_at
+      = s.attribute :created_at
+      = s.attribute :updated_at

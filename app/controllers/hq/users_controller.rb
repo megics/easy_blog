@@ -9,7 +9,7 @@ class Hq::UsersController < Hq::ApplicationController
   end
 
   def show
-    add_breadcrumb @user.name, hq_users_path(@user)
+    add_breadcrumb @user.email, hq_users_path(@user)
     respond_with(@user)
   end
 
