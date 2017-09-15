@@ -4,7 +4,8 @@ class Hq::UsersController < Hq::ApplicationController
   add_breadcrumb "Kullanıcılar", :hq_users_path
 
   def index
-    @users = User.all.order(id: :desc)
+    @search = User.order(id: :desc).search(params[:q])
+    @users = @search.result(distinct: true)
     respond_with(@users)
   end
 

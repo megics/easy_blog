@@ -46,6 +46,7 @@ gem 'susy'
 gem 'hierapolis-rails'
 gem 'responders'
 gem 'show_for'
+gem 'ransack'
 
 
 
