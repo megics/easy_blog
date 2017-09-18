@@ -119,6 +119,12 @@ trix-editor {
   width: 9%;
 }
 
-#beaker {
-  background-image: url("/images/sprite.png");
+.grid table th {
+  background-color: white;
+}
+tr:nth-of-type(2n) {
+  background: whit;
+}
+tr:nth-of-type(2n+1) {
+  background: whitesmoke ;
 }
