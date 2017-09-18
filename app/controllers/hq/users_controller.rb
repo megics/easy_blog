@@ -4,7 +4,7 @@ class Hq::UsersController < Hq::ApplicationController
   add_breadcrumb "Kullanıcılar", :hq_users_path
 
   def index
-    @search = User.order(id: :desc).search(params[:q])
+    @search = User.ransack(params[:q])
     @users = @search.result(distinct: true)
     respond_with(@users)
   end
