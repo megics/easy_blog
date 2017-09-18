@@ -5,10 +5,18 @@ class Hq::AdminsController < Hq::ApplicationController
   add_breadcrumb "Yöneticiler", :hq_admins_path
 
   def index
-    # @admins = Admin.all.order(id: :desc)
+
+    # @search = Admin.order(id: :desc).search(params[:q])
+    # @admins = @search.result(distinct: true)
     # respond_with(@admins)
-    @search = Admin.order(id: :desc).search(params[:q])
-    @admins = @search.result(distinct: true)
+
+    # @search = Admin.ransack(params[:q])
+    # @search.sorts = 'name desc' if @search.sorts.empty?
+    # @admins = @search.result(distinct: true)
+    # respond_with(@admins)
+
+    @search = Admin.ransack(params[:q])
+    @admins = @search.result(distinct:true)
     respond_with(@admins)
   end
 

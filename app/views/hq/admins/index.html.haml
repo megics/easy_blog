@@ -16,12 +16,18 @@
   %table
     %thead
       %tr
-        %th ID
-        %th İsim
-        %th E-posta
-        %th Güncel Giriş Tarihi
-        %th Son Giriş Tarihi
-        %th Aktif mi?
+        %th
+          = sort_link @search, :id, "ID"
+        %th
+          = sort_link @search, :name, "İsim"
+        %th
+          = sort_link @search, :email, "E-posta"
+        %th
+          = sort_link @search, :current_sign_in_at , "Güncel Giriş Tarihi"
+        %th
+          = sort_link @search, :last_sign_in_at, "Son Giriş Tarihi"
+        %th
+          = sort_link @search, :is_active, "Aktif mi?"
         %th.actions
           = "İşlemler"
     %tbody.admins
