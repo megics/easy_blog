@@ -38,11 +38,13 @@
           = sort_link @search, :current_sign_in_at, "Güncel Giriş Tarihi"
         %th
           = sort_link @search, :last_sign_in_at, "Son Giriş Tarihi"
+        %th
+          = sort_link @search, :is_active, "Aktif mi?"
         %th.actions
           = "İşlemler"
     %tbody.users
       -@users.each do |user|
-        %tr
+        %tr{class: user.is_active ? 'active' : 'passive'}
           %td= user.id
           %td= user.first_name
           %td= user.last_name
@@ -54,6 +56,7 @@
           %td= user.address
           %td= user.current_sign_in_at
           %td= user.last_sign_in_at
+          %td= user.is_active
           %td.action
             = link_to([:hq, user], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
               %i.icon-zoom-in

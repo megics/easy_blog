@@ -1,4 +1,5 @@
 class Hq::UsersController < Hq::ApplicationController
+  layout 'hq/application'
 
   before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_is_active]
   add_breadcrumb "Kullanıcılar", :hq_users_path
