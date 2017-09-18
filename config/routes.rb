@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index]
     resources :users, concerns: [:activeable]
     resources :categories
+    resources :articles
   end
 
 
