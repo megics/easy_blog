@@ -2,7 +2,7 @@ class Hq::ArticlesController < ApplicationController
   layout 'hq/application'
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb "Makaleler", hq_articles_path
+  add_breadcrumb "Makaleler", :hq_articles_path
 
 
   def index

@@ -1,0 +1,40 @@
+- content_for :toolbar do
+  = link_to new_hq_article_path, class: 'btn btn-default' do
+    %i.icon-new
+    = "Makale Ekle"
+
+.panel.panel-default.grid
+  .panel-heading
+    %i.fa.fa-table.icon-large
+    = "Makaleler"
+    .panel-tools
+      TOOOOOOLS
+  .panel-body
+    BBBBBBODY
+  %table
+    %thead
+      %tr
+        %th Makale Adı
+        %th Makale İçeriği
+        %th Yazar ID
+        %th Kategori ID
+        %th.actions
+          = "İşlemler"
+    %tbody.articles
+      -@articles.each do |a|
+        %tr
+          %td= a.title
+          %td= a.text
+          %td= a.user_id
+          %td= a.category_id
+          %td.action
+            = link_to([:hq, a], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+              %i.icon-zoom-in
+            = link_to(edit_hq_article_path(a) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+              %i.icon-edit
+            = link_to([:hq, a], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+              %i.icon-trash
+
+  .panel-footer
+    .pagination.pagination-sm
+      FOOTER
