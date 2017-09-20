@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :users, concerns: [:activeable]
     resources :categories
     resources :articles
+    resources :comments
   end
 
 
