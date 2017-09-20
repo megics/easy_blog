@@ -1,0 +1,12 @@
+%tr
+  %td= article.title
+  %td= article.text
+  %td= article.created_at
+  %td= article.updated_at
+    %td.action
+    = link_to([:hq, article], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
+      %i.icon-zoom-in
+    = link_to(edit_hq_article_path(article) , class: 'btn btn-info', data: { toggle: :tooltip }, title: "Düzenle") do
+      %i.icon-edit
+    = link_to([:hq, article], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+      %i.icon-trash

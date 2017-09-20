@@ -11,30 +11,18 @@ class Hq::ArticlesController < ApplicationController
   end
 
   def show
-    add_breadcrumb @article.name, hq_article_path(@article)
+    add_breadcrumb @article.title, hq_article_path(@article)
     respond_with(@article)
-  end
-
-  def new
-    add_breadcrumb "Yeni Makale", new_hq_article_path
-    @article = Article.new
-    respond_with(@article)
-  end
-
-  def create
-    @article = Article.new(article_params)
-    @article.save
-    respond_with(:hq, @article)
   end
 
   def edit
-    add_breadcrumb @article.name, hq_articles_path(@article)
+    add_breadcrumb @article.title, hq_articles_path(@article)
     add_breadcrumb "Makale düzenle", edit_hq_article_path
   end
 
   def destroy
     @article.destroy
-    respond_with(:hq, @article, location:request_referer)
+    respond_with(:hq, @article, location:request.referer)
   end
 
   def update
