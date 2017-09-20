@@ -11,8 +11,8 @@
       %tr
         %th Makale Adı
         %th Makale İçeriği
-        %th Yazar ID
-        %th Kategori ID
+        %th Yazar E-Posta
+        %th Kategoriler
         %th.actions
           = "İşlemler"
     %tbody.articles
@@ -20,8 +20,9 @@
         %tr
           %td= a.title
           %td= a.text
-          %td= a.user_id
-          %td= a.category_id
+          %td
+            = link_to "#{a.user.email}", hq_user_path(a.user)
+          %td= category_names(a.categories)
           %td.action
             = link_to([:hq, a], class: 'btn btn-success', data: { toggle: :tooltip}, title: "Büyüt") do
               %i.icon-zoom-in
