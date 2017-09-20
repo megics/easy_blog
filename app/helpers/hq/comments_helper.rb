@@ -1,0 +1,2 @@
+module Hq::CommentsHelper
+end

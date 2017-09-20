@@ -1,0 +1,35 @@
+.panel.panel-default.grid
+  .panel-heading
+    %i.fa.fa-table.icon-large
+    = "Yorumlar"
+    .panel-tools
+      TOOOOOOLS
+  .panel-body
+    BBBBBBODY
+  %table
+    %thead
+      %tr
+        %th Yorum İçeriği
+        %th Yorumcu
+        %th Yorumun Makalesi
+        %th Makale Yazarı
+        %th Oluşturulma Tarihi
+        %th.actions
+          = "İşlemler"
+    %tbody.comments
+      -@comments.each do |c|
+        %tr
+          %td= c.body
+          %td
+            = link_to "#{c.user.email}", hq_user_path(c.user)
+          %td= c.article.title
+          %td
+            = link_to "#{c.article.user.email}", hq_user_path(c.article.user)
+          %td= c.created_at
+          %td.action
+            = link_to([:hq, c], class: 'btn btn-danger', method: :delete, data: { confirm: "Emin misiniz?", toggle: :tooltip }, title: "Sil") do
+              %i.icon-trash
+
+  .panel-footer
+    .pagination.pagination-sm
+      FOOTER
