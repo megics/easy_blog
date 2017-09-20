@@ -3,29 +3,29 @@
 %ul#dock
   %li.launcher
     %i.icon-dashboard
-    =link_to 'Kontrol Paneli', '/hq/dashboard/index'
+    = link_to 'Kontrol Paneli', '/hq/dashboard/index'
+
   %li.launcher.dropdown.hover
     %i.icon-user
-    =link_to 'Sistem Kullanıcıları', '#'
+    = link_to 'Sistem Kullanıcıları', '#'
     %ul.dropdown-menu
       %li.dropdown-header Hesaplar:
       %li
-        =link_to 'Yöneticiler', hq_admins_path
+        = link_to 'Yöneticiler', hq_admins_path
       %li
-        =link_to 'Kullanıcılar', hq_users_path
-    %br/
-  %li.launcher.dropdown.hover
-    %i.icon-list
-    %a{href: '#'} Sistem Verileri
-    %ul.dropdown-menu
-      %li.dropdown-header Veriler:
-      %li
-        =link_to 'Makaleler', hq_articles_path
-      %li
-        =link_to 'Kategoriler', hq_categories_path
-      %li
-        =link_to 'Yorumlar', hq_comments_path
+        = link_to 'Kullanıcılar', hq_users_path
+  %br/
+  %li.launcher
+    %i.icon-book
+    = link_to 'Makaleler', hq_articles_path
 
+  %li.launcher
+    %i.icon-list-alt
+    = link_to 'Kategoriler', hq_categories_path
+
+  %li.launcher
+    %i.icon-comment
+    = link_to 'Yorumlar', hq_comments_path
 
 #beaker{data: {toggle: 'tooltip'}, title: 'Made by lab2023 internship megic'}
 
