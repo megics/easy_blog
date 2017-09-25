@@ -1,0 +1,2 @@
+module Hq::AuditsHelper
+end
